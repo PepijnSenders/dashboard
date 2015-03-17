@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="{{ URL::route('dashboard::pages.show', ['slug' => array_keys($models)[0]]) }}">
-        <img class="header__brand-image" src="@cdn('generic/branding/logo-svg.svg')" alt="Honor" width="114" />
+        <img class="header__brand-image" src="{{ Config::get('dashboard::dashboard.logo') }}" alt="{{ Config::get('dashboard::dashboard.title') }}" width="114" />
       </a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

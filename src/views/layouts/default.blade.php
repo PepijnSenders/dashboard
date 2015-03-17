@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
   <meta charset="utf-8">
-  <title>Honor Dashboard &mdash; @yield('dashboard::title')</title>
+  <title>{{ Config::get('dashboard::dashboard.title') }} &mdash; @yield('dashboard::title')</title>
 
   <base href="{{ URL::to('/') }}/" />
 
@@ -11,7 +11,8 @@
 
   @include('partials.favicon')
 
-  <link rel="stylesheet" type="text/css" href="css/dashboard/dashboard.css" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('packages/pep/dashboard/vendor/bootstrap/dist/css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('packages/pep/dashboard/css/dashboard.css') }}">
 
   @yield('dashboard::header.styles')
   @yield('dashboard::header.scripts')

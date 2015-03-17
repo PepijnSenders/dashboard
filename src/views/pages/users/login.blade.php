@@ -6,7 +6,7 @@ Login
 
 @section('dashboard::content')
 <legend>
-  <h1>Welcome, to the Honor Dashboard.</h1>
+  <h1>Welcome, to the {{ Config::get('dashboard::dashboard.title') }}.</h1>
   <p>Please login to gain entry</p>
 </legend>
 

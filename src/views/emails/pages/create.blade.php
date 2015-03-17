@@ -1,7 +1,7 @@
 @extends('dashboard::emails.layouts.basic')
 
 @section('dashboard::content')
-<h1>You've been added to the Honor Dashboard</h1>
+<h1>You've been added to the {{ Config::get('dashboard::dashboard.title') }}</h1>
 
 <p>
   {{ $currentUser->name }} added you to the dashboard. Please login with the following credentials:<br />

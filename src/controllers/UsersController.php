@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Pep\Dashboard\Validation\ValidatorException;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends BaseController {
 
@@ -97,7 +98,7 @@ class UsersController extends BaseController {
     try {
       $user->validate();
     } catch (ValidatorException $e) {
-      return View::make('dashboard::pages.create')
+      return View::make('dashboard::pages.users.create')
         ->with('messages', $e->getMessageBag()->getMessages());
     }
 
@@ -105,17 +106,12 @@ class UsersController extends BaseController {
 
     $currentUser = Auth::pep__dashboard()->user();
 
-    $emailHtml = View::make('dashboard::emails.pages.create')
-      ->with('currentUser', $currentUser)
-      ->with('user', $user)
-      ->with('password', $password)
-      ->render();
-
     Mail::send('dashboard::emails.pages.create', [
       'currentUser' => $currentUser,
       'user' => $user,
       'password' => $password,
     ], function($message) use ($user, $currentUser) {
+      $message->subject('Invitation to ' . Config::get('dashboard::dashboard.title') . '.');
       $message->to($user->email, $user->name);
       $message->from($currentUser->email, $currentUser->name);
     });

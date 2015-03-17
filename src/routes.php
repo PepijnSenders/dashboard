@@ -33,9 +33,8 @@ Route::group(['prefix' => Config::get('dashboard::dashboard.prefix'), 'namespace
         Route::post('/users/delete/{id}', ['as' => 'dashboard::api.users.delete', 'uses' => 'UsersController@delete']);
       });
 
-      Route::group(['before' => 'dashboard__slug.input'], function() {
+      Route::group(['before' => 'dashboard__slug-input'], function() {
         Route::post('/export', ['as' => 'dashboard::api.export', 'uses' => 'DashboardController@export']);
-        Route::post('/socials/{id}', ['as' => 'dashboard::api.socials', 'uses' => 'SocialsController@update']);
       });
     });
 

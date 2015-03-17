@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\View;
 abstract class BaseController extends Controller {
 
   public function __construct() {
-    $models = Config::get('dashboard.models');
+    $models = Config::get('dashboard::models');
 
     if (Auth::pep__dashboard()->check()) {
       $user = Auth::pep__dashboard()->user();

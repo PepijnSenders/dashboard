@@ -67,8 +67,8 @@
           @endif
         @endforeach
         @if (array_key_exists('actions', $model))
-          @foreach ($model['actions'] as $action)
-            <td>@include("dashboard.partials.actions.$action", ['id' => $record->_id, 'slug' => $slug])</td>
+          @foreach ($model['actions'] as $action => $view)
+            <td>@include($view, ['id' => $record->_id, 'slug' => $slug])</td>
           @endforeach
         @endif
       </tr>

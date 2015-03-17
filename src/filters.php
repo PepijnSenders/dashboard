@@ -1,7 +1,7 @@
 <?php
 
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Pep\Dashboard\User\DashboardUser;
+use Pep\Dashboard\Models\User\DashboardUser;
 
 App::before(function() {
 
@@ -25,7 +25,7 @@ Route::filter('dashboard__slug', function($route) {
   }
 });
 
-Route::filter('dashboard__slug.input', function($route) {
+Route::filter('dashboard__slug-input', function($route) {
   $slug = Input::get('slug');
   if (!Auth::pep__dashboard()->user()->hasRightTo($slug)) {
     throw new AccessDeniedException("User has no right to $slug.");

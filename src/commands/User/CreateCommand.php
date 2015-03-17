@@ -29,7 +29,7 @@ class CreateCommand extends DashboardCommand {
 
     $user->rights = $rights;
 
-    $this->info("");
+    $this->info("\n\n");
 
     try {
       $user->validate();
