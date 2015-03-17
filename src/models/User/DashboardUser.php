@@ -4,6 +4,8 @@ use Pep\Dashboard\Models\User\User;
 
 class DashboardUser extends User {
 
+  const CREATE = 'create';
+
   protected $collection = 'pep_dashboard__user_dashboards';
   protected $table = 'pep_dashboard__user_dashboards';
 
@@ -12,5 +14,9 @@ class DashboardUser extends User {
     'name' => 'required',
     'password' => 'required',
   ];
+
+  public function hasRightTo($right) {
+    return in_array($right, $this->attributes['rights']);
+  }
 
 }

@@ -1,4 +1,4 @@
-<?php namespace Pep\Dashboard\Models;
+<?php namespace Pep\Dashboard\Models\Mongo;
 
 use Jenssegers\Mongodb\Model as Moloquent;
 use Illuminate\Support\Facades\Validator;
@@ -21,8 +21,6 @@ abstract class Model extends Moloquent {
       $rules,
       Config::get('dashboard::validation.messages', [])
     );
-
-    $validator->getPresenceVerifier()->setConnection($this->connection);
 
     if ($validator->fails()) {
       throw new ValidatorException($validator->messages());

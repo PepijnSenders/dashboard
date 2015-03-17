@@ -4,6 +4,7 @@ namespace Pep\Dashboard\Commands\User;
 
 use Pep\Dashboard\Commands\DashboardCommand;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Config;
 use Pep\Dashboard\Models\User\DashboardUser;
 use Pep\Dashboard\Validation\ValidatorException;
 
@@ -20,8 +21,15 @@ class CreateCommand extends DashboardCommand {
     $user->name = $this->ask('Amin name: ');
     $user->email = $this->ask('Admin email: ');
     $user->password = Hash::make($this->secret('Admin password: '));
+    $rights = [DashboardUser::CREATE];
 
-    $this->info("\n\n");
+    foreach (Config::get('dashboard::models') as $key => $model)  {
+      $rights[] = $key;
+    }
+
+    $user->rights = $rights;
+
+    $this->info("");
 
     try {
       $user->validate();
