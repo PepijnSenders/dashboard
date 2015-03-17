@@ -11,7 +11,7 @@
 
   @include('partials.favicon')
 
-  <link rel="stylesheet" type="text/css" href="{{ asset('packages/pep/dashboard/vendor/bootstrap/dist/css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('packages/pep/dashboard/vendor/bootstrap.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('packages/pep/dashboard/css/dashboard.css') }}">
 
   @yield('dashboard::header.styles')
@@ -27,8 +27,8 @@
     @yield('dashboard::content')
   </section>
 
-  <script type="text/javascript" src="{{ asset('packages/pep/dashboard/vendor/jquery/dist/jquery.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('packages/pep/dashboard/vendor/bootstrap/dist/js/bootstrap.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('packages/pep/dashboard/vendor/jquery.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('packages/pep/dashboard/vendor/bootstrap.js') }}"></script>
 
   @yield('dashboard::footer.scripts')
 </body>
