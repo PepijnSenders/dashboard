@@ -8,5 +8,22 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "php": ">=5.4",
+        "laravel/framework": "4.*",
+        "ollieread/multiauth": "3.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/controllers",
+            "src/models",
+            "src/commands"
+        ],
+        "psr-4": {
+            "Pep\\": "src/Pep"
+        }
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.*"
+    }
 }
