@@ -27,13 +27,9 @@
     @yield('dashboard::content')
   </section>
 
-  @if (Agent::browser() === 'IE' && $version <= 8)
-  <script type="text/javascript" src="dist/libs-legacy.bundle.js"></script>
-  @else
-  <script type="text/javascript" src="dist/libs.bundle.js"></script>
-  @endif
+  <script type="text/javascript" src="{{ asset('packages/pep/dashboard/vendor/jquery/dist/jquery.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('packages/pep/dashboard/vendor/bootstrap/dist/js/bootstrap.js') }}"></script>
 
-  <script type="text/javascript" src="dist/dashboard.bundle.js"></script>
   @yield('dashboard::footer.scripts')
 </body>
 </html>
