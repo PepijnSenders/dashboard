@@ -1,0 +1,12 @@
+{
+    "name": "pep/dashboard",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pepijn Senders",
+            "email": "p.senders92@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
