@@ -17,7 +17,7 @@ class DashboardController extends BaseController {
     $slug = Input::get('slug');
     $fields = Input::get('fields', []);
 
-    $models = Config::get('dashboard.models');
+    $models = Config::get('dashboard::models');
 
     if (!array_key_exists($slug, $models)) {
       throw new NotFoundHttpException('Model not found');

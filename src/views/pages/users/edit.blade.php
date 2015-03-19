@@ -47,7 +47,7 @@ Edit
          name="rights[]" id="create" value="create">
         Admin
       </label>
-      @foreach (Config::get('dashboard.models') as $key => $model)
+      @foreach (Config::get('dashboard::models') as $key => $model)
       <label for="{{ $key }}">
         <input
         @if (in_array($key, $user->rights))
