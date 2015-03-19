@@ -22,11 +22,11 @@ class Backup {
     $file = "$path/{$now->timestamp}.csv";
 
     foreach ($data as &$record) {
-      uksort($record, function($a, $b) use ($structure) {
-        if (in_array($a, $structure) && in_array($b, $structure)) {
-          return array_search($a, $structure) > array_search($b, $structure);
-        }
-      });
+      $copy = [];
+      foreach ($structure as $field) {
+        $copy[$field] = array_key_exists($field, $record) ? $record[$field] : '';
+      }
+      $record = $copy;
     }
 
     $formatter = Formatter::make($data, Formatter::ARR);
