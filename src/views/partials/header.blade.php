@@ -8,8 +8,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ URL::route('dashboard::pages.show', ['slug' => array_keys($models)[0]]) }}">
-        <img class="header__brand-image" src="{{ Config::get('dashboard::dashboard.logo') }}" alt="{{ Config::get('dashboard::dashboard.title') }}" width="114" />
+      <a class="navbar-brand" href="{{{ URL::route('dashboard::pages.show', ['slug' => array_keys($models)[0]]) }}}">
+        <img class="header__brand-image" src="{{{ Config::get('dashboard::dashboard.logo') }}}" alt="{{{ Config::get('dashboard::dashboard.title') }}}" width="114" />
       </a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -20,16 +20,16 @@
             active
             @endif
           ">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ $model['name'] }} <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{{ $model['name'] }}} <span class="caret"></span></a>
             <ul class="dropdown-menu inverse-dropdown" role="menu">
               <li>
-                <a href="{{ URL::route('dashboard::pages.show', ['slug' => $slug]) }}">List</a>
+                <a href="{{{ URL::route('dashboard::pages.show', ['slug' => $slug]) }}}">List</a>
               </li>
               <li>
-                <a href="{{ URL::route('dashboard::pages.stats', ['slug' => $slug]) }}">Stats</a>
+                <a href="{{{ URL::route('dashboard::pages.stats', ['slug' => $slug]) }}}">Stats</a>
               </li>
               <li>
-                <a href="{{ URL::route('dashboard::pages.export', ['slug' => $slug]) }}">Export</a>
+                <a href="{{{ URL::route('dashboard::pages.export', ['slug' => $slug]) }}}">Export</a>
               </li>
             </ul>
           </li>
@@ -43,16 +43,16 @@
           </a>
           <ul class="dropdown-menu inverse-dropdown" role="menu">
             <li>
-              <a href="{{ URL::route('dashboard::pages.create') }}">Add</a>
+              <a href="{{{ URL::route('dashboard::pages.create') }}}">Add</a>
             </li>
             <li>
-              <a href="{{ URL::route('dashboard::pages.users') }}">List</a>
+              <a href="{{{ URL::route('dashboard::pages.users') }}}">List</a>
             </li>
           </ul>
         </li>
         @endif
         <li>
-          <a href="{{ URL::route('dashboard::api.logout') }}">Logout</a>
+          <a href="{{{ URL::route('dashboard::api.logout') }}}">Logout</a>
         </li>
       </ul>
     </div>

@@ -11,22 +11,22 @@ Export
 
 @if (isset($messages))
   @foreach ($messages as $message)
-  <p class="text-danger">{{ $message[0] }}</p>
+  <p class="text-danger">{{{ $message[0] }}}</p>
   @endforeach
 @endif
 
-<form class="form-horizontal" method="POST" action="{{ URL::route('dashboard::api.export') }}">
-  <input type="hidden" name="_token" value="{{ csrf_token(); }}">
+<form class="form-horizontal" method="POST" action="{{{ URL::route('dashboard::api.export') }}}">
+  <input type="hidden" name="_token" value="{{{ csrf_token(); }}}">
   <div>
-    <input type="hidden" name="slug" value="{{ Route::input('slug') }}">
+    <input type="hidden" name="slug" value="{{{ Route::input('slug') }}}">
   </div>
   <div class="form-group">
     <label class="col-sm-2 control-label" for="fields">Fields</label>
     <div class="col-sm-8">
       @foreach ($model['fields'] as $field)
-      <label for="{{ $field }}">
-        <input checked="checked" type="checkbox" name="fields[]" id="{{ $field }}" value="{{ $field }}">
-        {{ Str::title($field) }}
+      <label for="{{{ $field }}}">
+        <input checked="checked" type="checkbox" name="fields[]" id="{{{ $field }}}" value="{{{ $field }}}">
+        {{{ Str::title($field) }}}
       </label>
       @endforeach
     </div>

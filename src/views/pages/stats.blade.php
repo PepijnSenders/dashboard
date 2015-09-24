@@ -1,7 +1,7 @@
 @extends('dashboard::layouts.default')
 
 @section('dashboard::title')
-{{ Str::title(Route::input('slug')) }}
+{{{ Str::title(Route::input('slug')) }}}
 @stop
 
 @section('dashboard::content')
@@ -19,8 +19,8 @@
   <tbody>
     @foreach ($stats as $key => $stat)
     <tr>
-      <td>{{ Str::title($key) }}</td>
-      <td>{{ $stat }}</td>
+      <td>{{{ Str::title($key) }}}</td>
+      <td>{{{ $stat }}}</td>
     </tr>
     @endforeach
   </tbody>
