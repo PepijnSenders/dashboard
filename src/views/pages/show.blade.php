@@ -50,17 +50,17 @@
               @define $ext = pathinfo($value, PATHINFO_EXTENSION);
               @if (preg_match('/png|jpg|jpeg|bmp|gif/', $ext))
               <td>
-                <img src="{{ $value }}" width="150">
+                <img src="{{{ $value }}}" width="150">
               </td>
               @else
               <td>
-                <a target="_blank" href="{{ $value }}">Link</a>
+                <a target="_blank" href="{{{ $value }}}">Link</a>
               </td>
               @endif
             @elseif (is_bool($value))
             <td>{{ var_export($value, true) }}</td>
             @else
-            <td>{{ $value }}</td>
+            <td>{{{ $value }}}</td>
             @endif
           @else
             <td></td>
